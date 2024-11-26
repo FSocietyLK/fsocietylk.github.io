@@ -4,6 +4,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  // Add basePath for GitHub Pages
+  basePath:
+    process.env.NODE_ENV === "production" ? "/fsocietylk.github.io" : "",
 };
 
-export default nextConfig;
+module.exports = nextConfig;
