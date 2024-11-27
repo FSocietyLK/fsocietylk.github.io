@@ -26,9 +26,13 @@ jobs:
 
       - name: Build
         run: npm run build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /your-repo-name # Add this if your repo is not username.github.io
 
       - name: Add .nojekyll file
-        run: touch ./out/.nojekyll
+        run: |
+          touch ./out/.nojekyll
+          cp -r out/* .
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
@@ -36,3 +40,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
           force_orphan: true
+          enable_jekyll: false

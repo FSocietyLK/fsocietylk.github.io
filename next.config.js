@@ -4,9 +4,19 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Add basePath for GitHub Pages
-  basePath:
-    process.env.NODE_ENV === "production" ? "/fsocietylk.github.io" : "",
+  assetPrefix: ".",
+  trailingSlash: true,
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        stream: false,
+        canvas: false,
+      };
+    }
+    return config;
+  },
 };
 
 module.exports = nextConfig;
