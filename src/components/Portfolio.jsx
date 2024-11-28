@@ -1,157 +1,357 @@
-import React, { useState } from "react";
+import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
-import { Code, Timer, BarChart2, Mail, Settings, Download } from "lucide-react";
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
+import {
+  Code,
+  Timer,
+  BarChart2,
+  Mail,
+  Settings,
+  Search,
+  Calculator,
+  Bot,
+  Table,
+  Layout,
+} from "lucide-react";
+import DownloadPDFButton from "@/components/ui/download-pdf-button";
 
 const Portfolio = () => {
-  const [isExporting, setIsExporting] = useState(false);
-
-  const project = {
-    title: "Passport to Maths Need Analysis Test Automation",
-    period: "August 2024 - October 2024",
-    organization: "Monash College",
-    role: "Moodle Plugin Developer (Intern)",
-    description: `Developed and implemented an automated system for the Passport to Maths program that analyzes student test performance and generates personalized module recommendations. The system features a sophisticated module allocation algorithm and automated email generation, significantly reducing administrative workload while maintaining high accuracy in recommendations.`,
-    features: [
-      {
-        title: "Intelligent Module Allocation",
-        description:
-          "Automated analysis of student performance data using a BFS-based algorithm to recommend appropriate learning modules",
-        icon: <Settings />,
-      },
-      {
-        title: "Personalized Email Generation",
-        description:
-          "Automated creation and formatting of personalized emails containing module recommendations and next steps for each student",
-        icon: <Mail />,
-      },
-      {
-        title: "Performance Optimization",
-        description:
-          "Significantly improved processing speed through optimized data structures and algorithms",
-        icon: <Timer />,
-      },
-      {
-        title: "Data Integration",
-        description:
-          "Seamless integration with Moodle LMS and existing spreadsheet-based workflows",
-        icon: <BarChart2 />,
-      },
-    ],
-    metrics: [
-      {
-        label: "Module Processing Speed",
-        oldValue: "57.1s",
-        newValue: "19s",
-        improvement: "66.7%",
-      },
-      {
-        label: "Email Generation",
-        oldValue: "15 min",
-        newValue: "3 min",
-        improvement: "80%",
-      },
-      {
-        label: "Recommendation Accuracy",
-        value: "99.9%",
-        type: "achievement",
-      },
-    ],
-    techStack: [
-      "Google Apps Script",
-      "JavaScript",
-      "Moodle Integration",
-      "CSV Processing",
-      "Drive API",
-      "BFS Algorithm",
-    ],
-  };
-
-  const handleDownloadPDF = async () => {
-    setIsExporting(true);
-    const content = document.getElementById("portfolio-content");
-
-    try {
-      const canvas = await html2canvas(content, {
-        scale: 4, // Increased scale for better quality
-        useCORS: true,
-        logging: false,
-        imageTimeout: 0, // Prevent timeout for large images
-        backgroundColor: "#ffffff",
-        removeContainer: true,
-        windowWidth: content.scrollWidth,
-        windowHeight: content.scrollHeight,
-      });
-
-      const imgWidth = 210; // A4 width in mm
-      const imgHeight = (canvas.height * imgWidth) / canvas.width;
-
-      const pdf = new jsPDF({
-        unit: "mm",
-        format: "a4",
-        compress: false, // Disable compression for better quality
-      });
-
-      const imgData = canvas.toDataURL("image/jpeg", 1.0); // Using maximum quality JPEG
-
-      pdf.addImage(
-        imgData,
-        "JPEG",
-        0,
-        0,
-        imgWidth,
-        imgHeight,
-        undefined,
-        "FAST"
-      );
-
-      // If content is longer than one page
-      if (imgHeight > 297) {
-        let remainingHeight = imgHeight;
-        let position = -297;
-
-        while (remainingHeight > 0) {
-          pdf.addPage();
-          pdf.addImage(
-            imgData,
-            "JPEG",
-            0,
-            position,
-            imgWidth,
-            imgHeight,
-            undefined,
-            "FAST"
-          );
-          remainingHeight -= 297;
-          position -= 297;
-        }
-      }
-
-      pdf.save("portfolio.pdf");
-    } catch (error) {
-      console.error("Error generating PDF:", error);
-    } finally {
-      setIsExporting(false);
-    }
-  };
+  const projects = [
+    {
+      title: "Passport to Maths Need Analysis Test Automation",
+      period: "August 2024 - October 2024",
+      organization: "Monash College",
+      role: "Moodle Plugin Developer",
+      description: `Developed and implemented an automated system for the Passport to Maths program that analyzes student test performance and generates personalized module recommendations. The system features a sophisticated module allocation algorithm and automated email generation, significantly reducing administrative workload while maintaining high accuracy in recommendations.`,
+      features: [
+        {
+          title: "Intelligent Module Allocation",
+          description:
+            "Automated analysis of student performance data using a BFS-based algorithm to recommend appropriate learning modules",
+          icon: <Settings />,
+        },
+        {
+          title: "Personalized Email Generation",
+          description:
+            "Automated creation and formatting of personalized emails containing module recommendations and next steps for each student",
+          icon: <Mail />,
+        },
+        {
+          title: "Performance Optimization",
+          description:
+            "Significantly improved processing speed through optimized data structures and algorithms",
+          icon: <Timer />,
+        },
+        {
+          title: "Data Integration",
+          description:
+            "Seamless integration with Moodle LMS and existing spreadsheet-based workflows",
+          icon: <BarChart2 />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Module Processing Speed",
+          oldValue: "57.1s",
+          newValue: "19s",
+          improvement: "66.7%",
+        },
+        {
+          label: "Email Generation",
+          oldValue: "15 min",
+          newValue: "3 min",
+          improvement: "80%",
+        },
+        {
+          label: "Student Retention",
+          value: "92% completion rate",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "Google Apps Script",
+        "JavaScript",
+        "Moodle Integration",
+        "CSV Processing",
+        "Drive API",
+        "BFS Algorithm",
+      ],
+      images: [
+        {
+          src: "./images/module-recommendation.png",
+          alt: "Module Recommendation Interface",
+          caption:
+            "Module Recommendation Dashboard with automated data processing",
+        },
+        {
+          src: "./images/email-template.png",
+          alt: "Automated Email Template",
+          caption: "Personalized email generation with module recommendations",
+        },
+      ],
+    },
+    {
+      title: "P2M Reporting System Automation",
+      period: "October 2024 - November 2024",
+      organization: "Monash College",
+      role: "Moodle Plugin Developer",
+      description:
+        "Developed a scalable automation solution for a comprehensive learning analytics system that automated the process of preparing and generating three key reports for student journey analysis. Streamlined data extraction, cleaning, and integration processes from CSV files into Google Sheets, featuring dynamic reporting for NAT completion, module allocation, and engagement analysis.",
+      images: [
+        {
+          src: "./images/p2m-report.png",
+          alt: "P2M Progress Report Interface",
+          caption:
+            "Master dataset showing module allocation across different math units",
+        },
+        {
+          src: "./images/p2m-flow.png",
+          alt: "P2M System Process Flow",
+          caption:
+            "Automated reporting system workflow showing data preparation, NAT processing, and report generation stages",
+        },
+      ],
+      features: [
+        {
+          title: "Automated Report Generation",
+          description:
+            "Implemented dynamic report generation system handling multiple data sources and complex calculations",
+          icon: <BarChart2 />,
+        },
+        {
+          title: "Data Integration",
+          description:
+            "Built robust data validation and error handling mechanisms for CSV processing",
+          icon: <Settings />,
+        },
+        {
+          title: "Formula Optimization",
+          description:
+            "Utilized advanced formula expressions for efficient data processing and calculations",
+          icon: <Calculator />,
+        },
+        {
+          title: "Performance Enhancement",
+          description:
+            "Optimized system performance through efficient data structures and parallel processing",
+          icon: <Timer />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Manual Workload Reduction",
+          oldValue: "100%",
+          newValue: "20%",
+          improvement: "80%",
+        },
+        {
+          label: "Report Generation Time",
+          oldValue: "4 hours",
+          newValue: "15 minutes",
+          improvement: "93.75%",
+        },
+        {
+          label: "Data Accuracy",
+          value: "99.9%",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "JavaScript/Apps Script",
+        "Google Sheets",
+        "Drive API",
+        "Array Formulas",
+        "CSV Processing",
+      ],
+    },
+    {
+      title: "VPMS Appointment Booking Widget",
+      period: "December 2022",
+      organization: "VetCheck",
+      role: "Frontend Developer",
+      description:
+        "Designed and implemented a user-friendly Appointment Booking Widget for the VetCheck Veterinary Practice Management System (VPMS). This widget serves as a floating UI component that allows clients' customers to schedule appointments conveniently, featuring responsive design and accessibility considerations.",
+      images: [
+        {
+          src: "./images/booking-widget.png",
+          alt: "VPMS Appointment Booking Widget Interface",
+          caption:
+            "Progressive booking interface showing date selection, client information, and appointment details",
+        },
+      ],
+      features: [
+        {
+          title: "Responsive Design",
+          description:
+            "Implemented fully responsive and cross-platform compatible interface",
+          icon: <Code />,
+        },
+        {
+          title: "Client Validation",
+          description:
+            "Reduced form submission errors by 95% through comprehensive client-side validation",
+          icon: <BarChart2 />,
+        },
+        {
+          title: "Accessibility",
+          description:
+            "Implemented keyboard tabbing focus and proper ARIA labels for better accessibility",
+          icon: <Settings />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Client Satisfaction",
+          value: "Excellent Feedback",
+          type: "achievement",
+        },
+        {
+          label: "Appointment Booking Time",
+          oldValue: "5+ minutes",
+          newValue: "Under 2 minutes",
+          improvement: "60%",
+        },
+        {
+          label: "User Experience",
+          value: "95% usability rating",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "JavaScript",
+        "jQuery",
+        "HTML",
+        "CSS",
+        "UI/UX Design",
+        "Chrome Dev Tools",
+      ],
+    },
+    {
+      title: "VPMS Calculator Widget & Search",
+      period: "January 2023",
+      organization: "VetCheck",
+      role: "Frontend Developer",
+      description:
+        "Rebuilt the Calculator Widget addressing computational issues and implemented an intuitive Search Functionality. Fixed critical floating-point arithmetic issues and enhanced UI responsiveness.Resolved and Fixed critical floating-point arithmetic inaccuracies, percentage calculation bugs, and enhanced UI responsiveness while adding new features like keyboard bindings.",
+      images: [
+        {
+          src: "./images/calculator-search.png",
+          alt: "VPMS Calculator and Search Interface",
+          caption:
+            "Integrated calculator widget and help center search functionality showing dynamic article filtering and improved arithmetic precision",
+        },
+      ],
+      features: [
+        {
+          title: "Advanced Calculations",
+          description:
+            "Implemented precise floating-point arithmetic and complex calculations",
+          icon: <Calculator />,
+        },
+        {
+          title: "Error Prevention",
+          description:
+            "Reduced calculation errors by 99.9% through comprehensive input validation",
+          icon: <Settings />,
+        },
+        {
+          title: "Enhanced UI",
+          description:
+            "Developed responsive interface with keyboard shortcuts and intuitive controls",
+          icon: <Layout />,
+        },
+        {
+          title: "Search Functionality",
+          description: "Developed dynamic search with keyword-based filtering",
+          icon: <Search />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Calculation Accuracy",
+          value: "100%",
+          type: "achievement",
+        },
+        {
+          label: "Search Response Time",
+          oldValue: "20-30 seconds manually",
+          newValue: "Under 100ms",
+          improvement: "95.5%",
+        },
+      ],
+      techStack: [
+        "Pure JavaScript",
+        "HTML",
+        "CSS",
+        "Decimal.js",
+        "UI/UX Design",
+      ],
+    },
+    {
+      title: "SRR Monitor UI & Dialogflow Bot",
+      period: "February 2023",
+      organization: "VetCheck",
+      role: "Full Stack Developer",
+      description:
+        "Designed the SRR Monitor Sheet UI for streamlined data entry and researched AI-powered chatbot integration using Dialogflow. Developed a proof-of-concept for an intelligent FAQ filtering system by integrating Google's Dialogflow API for natural language processing and intent recognition, with implementation through the Facebook Developer App for user interaction.",
+      images: [
+        {
+          src: "./images/srr-monitor.png",
+          alt: "SRR Monitor Sheet and FAQ Interface",
+          caption:
+            "Dynamic SRR monitoring interface with integrated FAQ search functionality",
+        },
+        {
+          src: "./images/dialogflow-bot.png",
+          alt: "Dialogflow Messenger Bot Interface",
+          caption:
+            "AI-powered chatbot prototype for automated customer support",
+        },
+      ],
+      features: [
+        {
+          title: "Dynamic UI Generation",
+          description:
+            "Implemented dynamic table generation for efficient data entry",
+          icon: <Table />,
+        },
+        {
+          title: "AI Integration",
+          description:
+            "Researched and prototyped AI-powered chatbot using Dialogflow",
+          icon: <Bot />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Workflow Efficiency",
+          oldValue: "Manual process",
+          newValue: "Automated",
+          improvement: "Significant",
+        },
+        {
+          label: "User Productivity",
+          value: "60% increase",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "JavaScript",
+        "Google Dialogflow API",
+        "Facebook Developer App",
+        "Messenger Bot API",
+        "UI/UX Design",
+      ],
+    },
+  ];
 
   return (
     <div className="max-w-6xl mx-auto p-6 space-y-8">
       {/* Download Button with loading state */}
       <div className="flex justify-end mb-4">
-        <button
-          onClick={handleDownloadPDF}
-          disabled={isExporting}
-          className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
-            isExporting
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700"
-          } text-white`}
-        >
-          <Download size={20} />
-          {isExporting ? "Generating PDF..." : "Download PDF"}
-        </button>
+        <DownloadPDFButton
+          contentId="portfolio-content"
+          fileName="portfolio.pdf"
+        />
       </div>
 
       {/* Main content with ID for PDF generation */}
@@ -173,9 +373,9 @@ const Portfolio = () => {
 
         <div className="text-justify mx-auto text-left mb-8">
           <p className="text-lg text-gray-700 mb-6">
-            As a full-stack developer with a Master&apos;s in Cyber Security, I blend
-            technical expertise with a security-first mindset. My passion lies
-            in creating robust, user-friendly applications that make a real
+            As a full-stack developer with a Master&apos;s in Cyber Security, I
+            blend technical expertise with a security-first mindset. My passion
+            lies in creating robust, user-friendly applications that make a real
             difference. With experience spanning from enterprise-level systems
             to innovative startups, I bring both technical depth and practical
             problem-solving to every project.
@@ -277,123 +477,134 @@ const Portfolio = () => {
           </div>
         </div>
 
-        <Card className="mb-8">
-          <CardHeader>
-            <div className="flex items-center justify-between">
-              <div>
-                <CardTitle className="text-2xl font-bold">
-                  {project.title}
-                </CardTitle>
-                <p className="text-gray-600 mt-2">
-                  {project.organization} | {project.period}
-                </p>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent>
-            <div className="space-y-8">
-              {/* Project Overview */}
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Project Overview</h3>
-                <p className="text-gray-700">{project.description}</p>
-              </div>
+        {/* Projects Section */}
+        <div className="space-y-8">
+          {projects.map((project, index) => (
+            <Card key={index} className="mb-8">
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="text-2xl font-bold">
+                      {project.title}
+                    </CardTitle>
+                    <p className="text-gray-600 mt-2">
+                      {project.organization} | {project.period}
+                    </p>
+                    {project.role && (
+                      <p className="text-gray-600 mt-1">{project.role}</p>
+                    )}
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-8">
+                  {/* Project Overview */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">
+                      Project Overview
+                    </h3>
+                    <p className="text-gray-700">{project.description}</p>
+                  </div>
 
-              {/* Key Features */}
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Key Features</h3>
-                <div className="grid md:grid-cols-2 gap-6">
-                  {project.features.map((feature, idx) => (
-                    <div key={idx} className="flex items-start space-x-3">
-                      <div className="text-blue-500 mt-1">{feature.icon}</div>
-                      <div>
-                        <h4 className="font-semibold">{feature.title}</h4>
-                        <p className="text-gray-600">{feature.description}</p>
+                  {/* Key Features */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">Key Features</h3>
+                    <div className="grid md:grid-cols-2 gap-6">
+                      {project.features.map((feature, idx) => (
+                        <div key={idx} className="flex items-start space-x-3">
+                          <div className="text-blue-500 mt-1">
+                            {feature.icon}
+                          </div>
+                          <div>
+                            <h4 className="font-semibold">{feature.title}</h4>
+                            <p className="text-gray-600">
+                              {feature.description}
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* System Screenshots */}
+                  {project.images && project.images.length > 0 && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        System Interface
+                      </h3>
+                      <div className="space-y-8">
+                        {project.images.map((image, idx) => (
+                          <div key={idx} className="space-y-2">
+                            <img
+                              src={image.src}
+                              alt={image.alt}
+                              className="rounded-lg shadow-md w-full object-contain"
+                            />
+                            <p className="text-sm text-gray-600 text-center">
+                              {image.caption}
+                            </p>
+                          </div>
+                        ))}
                       </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                  )}
 
-              {/* System Screenshots - Changed to vertical layout */}
-              <div>
-                <h3 className="text-xl font-semibold mb-4">System Interface</h3>
-                <div className="space-y-8">
-                  {" "}
-                  {/* Changed to vertical stack with increased spacing */}
-                  <div className="space-y-2">
-                    <img
-                      src="./images/module-recommendation.png"
-                      alt="Module Recommendation Interface"
-                      className="rounded-lg shadow-md w-full object-contain"
-                    />
-                    <p className="text-sm text-gray-600 text-center">
-                      Module Recommendation Dashboard with automated data
-                      processing
-                    </p>
-                  </div>
-                  <div className="space-y-2">
-                    <img
-                      src="./images/email-template.png"
-                      alt="Automated Email Template"
-                      className="rounded-lg shadow-md w-full object-contain"
-                    />
-                    <p className="text-sm text-gray-600 text-center">
-                      Personalized email generation with module recommendations
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Performance Metrics */}
-              <div>
-                <h3 className="text-xl font-semibold mb-4">
-                  Performance Improvements
-                </h3>
-                <div className="grid md:grid-cols-3 gap-6">
-                  {project.metrics.map((metric, idx) => (
-                    <div key={idx} className="bg-gray-50 p-4 rounded-lg">
-                      <h4 className="font-semibold text-lg mb-2">
-                        {metric.label}
-                      </h4>
-                      {metric.type === "achievement" ? (
-                        <div className="text-green-600 font-bold text-2xl">
-                          {metric.value}
-                        </div>
-                      ) : (
-                        <div>
-                          <p className="text-gray-600">
-                            Before: {metric.oldValue}
-                          </p>
-                          <p className="text-gray-600">
-                            After: {metric.newValue}
-                          </p>
-                          <p className="text-green-600 font-bold mt-2">
-                            ↓ {metric.improvement}
-                          </p>
-                        </div>
-                      )}
+                  {/* Performance Metrics */}
+                  {project.metrics && project.metrics.length > 0 && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        Performance Improvements
+                      </h3>
+                      <div className="grid md:grid-cols-3 gap-6">
+                        {project.metrics.map((metric, idx) => (
+                          <div key={idx} className="bg-gray-50 p-4 rounded-lg">
+                            <h4 className="font-semibold text-lg mb-2">
+                              {metric.label}
+                            </h4>
+                            {metric.type === "achievement" ? (
+                              <div className="text-green-600 font-bold text-2xl">
+                                {metric.value}
+                              </div>
+                            ) : (
+                              <div>
+                                <p className="text-gray-600">
+                                  Before: {metric.oldValue}
+                                </p>
+                                <p className="text-gray-600">
+                                  After: {metric.newValue}
+                                </p>
+                                <p className="text-green-600 font-bold mt-2">
+                                  ↓ {metric.improvement}
+                                </p>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                  )}
 
-              {/* Technical Stack */}
-              <div>
-                <h3 className="text-xl font-semibold mb-4">Technical Stack</h3>
-                <div className="flex flex-wrap gap-3">
-                  {project.techStack.map((tech, idx) => (
-                    <span
-                      key={idx}
-                      className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-                    >
-                      {tech}
-                    </span>
-                  ))}
+                  {/* Technical Stack */}
+                  <div>
+                    <h3 className="text-xl font-semibold mb-4">
+                      Technical Stack
+                    </h3>
+                    <div className="flex flex-wrap gap-3">
+                      {project.techStack.map((tech, idx) => (
+                        <span
+                          key={idx}
+                          className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
       </div>
     </div>
   );
