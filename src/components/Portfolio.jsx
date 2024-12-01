@@ -1,5 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
+import VideoDemo from "@/components/ui/video-demo";
+import DownloadPDFButton from "@/components/ui/download-pdf-button";
 import {
   Code,
   Timer,
@@ -12,7 +14,6 @@ import {
   Table,
   Layout,
 } from "lucide-react";
-import DownloadPDFButton from "@/components/ui/download-pdf-button";
 
 const Portfolio = () => {
   const projects = [
@@ -287,6 +288,17 @@ const Portfolio = () => {
       ],
     },
     {
+      title: "VPMS Features Demonstration",
+      period: "November 2022 - January 2023",
+      organization: "VetCheck",
+      role: "Frontend Developer",
+      videoDemo: {
+        url: "./videos/vpms-demo.mp4",
+        description:
+          "Interactive demonstration of VPMS features including appointment booking and calculator functionality across desktop and mobile devices.",
+      },
+    },
+    {
       title: "SRR Monitor UI & Dialogflow Bot",
       period: "February 2023",
       organization: "VetCheck",
@@ -372,14 +384,16 @@ const Portfolio = () => {
         </div>
 
         <div className="text-justify mx-auto text-left mb-8">
-          <p className="text-lg text-gray-700 mb-6">
-            As a full-stack developer with a Master&apos;s in Cyber Security, I
-            blend technical expertise with a security-first mindset. My passion
-            lies in creating robust, user-friendly applications that make a real
-            difference. With experience spanning from enterprise-level systems
-            to innovative startups, I bring both technical depth and practical
-            problem-solving to every project.
-          </p>
+          <div className="print:px-8">
+            <p className="text-lg text-gray-700 mb-6">
+              As a full-stack developer with a Master&apos;s in Cyber Security,
+              I blend technical expertise with a security-first mindset. My
+              passion lies in creating robust, user-friendly applications that
+              make a real difference. With experience spanning from
+              enterprise-level systems to innovative startups, I bring both
+              technical depth and practical problem-solving to every project.
+            </p>
+          </div>
 
           <div className="flex flex-col md:flex-row justify-center gap-4 mb-8">
             <a
@@ -430,24 +444,22 @@ const Portfolio = () => {
                 viewBox="0 0 16 16"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g stroke-width="0"></g>
-                <g stroke-linecap="round" stroke-linejoin="round"></g>
+                <g strokeWidth="0"></g>
+                <g strokeLinecap="round" strokeLinejoin="round"></g>
                 <g>
-                  {" "}
                   <g>
-                    {" "}
-                    <path d="M6.75 9.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM6 12.75a.75.75 0 01.75-.75h2.5a.75.75 0 010 1.5h-2.5a.75.75 0 01-.75-.75z"></path>{" "}
+                    <path d="M6.75 9.5a.75.75 0 000 1.5h4.5a.75.75 0 000-1.5h-4.5zM6 12.75a.75.75 0 01.75-.75h2.5a.75.75 0 010 1.5h-2.5a.75.75 0 01-.75-.75z" />
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M7.25 2.5C6.56 2.5 6 3.06 6 3.75v3.5c0 .69.56 1.25 1.25 1.25h4.5c.69 0 1.25-.56 1.25-1.25v-3.5c0-.69-.56-1.25-1.25-1.25h-4.5zM7.5 7V4h4v3h-4z"
-                      clip-rule="evenodd"
-                    ></path>{" "}
+                      clipRule="evenodd"
+                    />
                     <path
-                      fill-rule="evenodd"
+                      fillRule="evenodd"
                       d="M2.75 16h10.5a2.25 2.25 0 002.25-2.25V2.25A2.25 2.25 0 0013.25 0h-7.5A2.25 2.25 0 003.5 2.25V3.5h-.75A2.25 2.25 0 00.5 5.75v8A2.25 2.25 0 002.75 16zM14 2.25v11.5a.75.75 0 01-.75.75H4.872c.083-.235.128-.487.128-.75V2.25a.75.75 0 01.75-.75h7.5a.75.75 0 01.75.75zM2.75 14.5a.75.75 0 00.75-.75V5h-.75a.75.75 0 00-.75.75v8c0 .414.336.75.75.75z"
-                      clip-rule="evenodd"
-                    ></path>{" "}
-                  </g>{" "}
+                      clipRule="evenodd"
+                    />
+                  </g>
                 </g>
               </svg>
               Tech Blog
@@ -479,6 +491,7 @@ const Portfolio = () => {
 
         {/* Projects Section */}
         <div className="space-y-8">
+          <h2 className="text-3xl font-bold px-4 -mb-2">Featured Projects</h2>
           {projects.map((project, index) => (
             <Card key={index} className="mb-8">
               <CardHeader>
@@ -499,32 +512,51 @@ const Portfolio = () => {
               <CardContent>
                 <div className="space-y-8">
                   {/* Project Overview */}
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">
-                      Project Overview
-                    </h3>
-                    <p className="text-gray-700">{project.description}</p>
-                  </div>
+                  {project.description && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        Project Overview
+                      </h3>
+                      <p className="text-gray-700">{project.description}</p>
+                    </div>
+                  )}
+
+                  {/* Video Demo */}
+                  {project.videoDemo && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        Project Features Demo
+                      </h3>
+                      <VideoDemo
+                        videoUrl={project.videoDemo.url}
+                        description={project.videoDemo.description}
+                      />
+                    </div>
+                  )}
 
                   {/* Key Features */}
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">Key Features</h3>
-                    <div className="grid md:grid-cols-2 gap-6">
-                      {project.features.map((feature, idx) => (
-                        <div key={idx} className="flex items-start space-x-3">
-                          <div className="text-blue-500 mt-1">
-                            {feature.icon}
+                  {project.features && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        Key Features
+                      </h3>
+                      <div className="grid md:grid-cols-2 gap-6">
+                        {project.features.map((feature, idx) => (
+                          <div key={idx} className="flex items-start space-x-3">
+                            <div className="text-blue-500 mt-1">
+                              {feature.icon}
+                            </div>
+                            <div>
+                              <h4 className="font-semibold">{feature.title}</h4>
+                              <p className="text-gray-600">
+                                {feature.description}
+                              </p>
+                            </div>
                           </div>
-                          <div>
-                            <h4 className="font-semibold">{feature.title}</h4>
-                            <p className="text-gray-600">
-                              {feature.description}
-                            </p>
-                          </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
 
                   {/* System Screenshots */}
                   {project.images && project.images.length > 0 && (
@@ -585,21 +617,23 @@ const Portfolio = () => {
                   )}
 
                   {/* Technical Stack */}
-                  <div>
-                    <h3 className="text-xl font-semibold mb-4">
-                      Technical Stack
-                    </h3>
-                    <div className="flex flex-wrap gap-3">
-                      {project.techStack.map((tech, idx) => (
-                        <span
-                          key={idx}
-                          className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+                  {project.techStack && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        Technical Stack
+                      </h3>
+                      <div className="flex flex-wrap gap-3">
+                        {project.techStack.map((tech, idx) => (
+                          <span
+                            key={idx}
+                            className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm"
+                          >
+                            {tech}
+                          </span>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+                  )}
                 </div>
               </CardContent>
             </Card>

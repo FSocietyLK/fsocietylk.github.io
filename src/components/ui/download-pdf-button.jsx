@@ -10,6 +10,13 @@ const DownloadPDFButton = ({ contentId, fileName = "download.pdf" }) => {
     setIsExporting(true);
     const content = document.getElementById(contentId);
 
+    // Add PDF-specific styles before generating
+    const bioText = content.querySelector(".text-lg.text-gray-700");
+    if (bioText) {
+      bioText.style.marginLeft = "20px";
+      bioText.style.marginRight = "20px";
+    }
+
     try {
       const canvas = await html2canvas(content, {
         scale: 2.5,
@@ -21,6 +28,12 @@ const DownloadPDFButton = ({ contentId, fileName = "download.pdf" }) => {
         windowWidth: content.scrollWidth,
         windowHeight: content.scrollHeight,
       });
+
+      // Reset styles after canvas generation
+      if (bioText) {
+        bioText.style.marginLeft = "";
+        bioText.style.marginRight = "";
+      }
 
       const imgWidth = 210; // A4 width in mm
       const pageHeight = 295; // A4 height in mm (subtracting margins)
