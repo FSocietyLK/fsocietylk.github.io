@@ -16,6 +16,48 @@ import {
 } from "lucide-react";
 
 const Portfolio = () => {
+  const skillCategories = [
+    {
+      title: "Frontend Development",
+      skills: [
+        "Java/JavaScript",
+        "React.js",
+        "Next.js",
+        "HTML5",
+        "CSS3",
+        "jQuery",
+        "Bootstrap",
+        "Tailwind",
+      ],
+    },
+    {
+      title: "Backend Development",
+      skills: [
+        "Node.js",
+        "Express.js",
+        "PHP",
+        "ASP.NET",
+        "RESTful APIs",
+        "Dialogflow",
+        "MongoDB",
+        "SQL/MySQL",
+      ],
+    },
+    {
+      title: "Tools & Technologies",
+      skills: [
+        "Git",
+        "Github/Bitbucket",
+        "Google Apps Script",
+        "Jenkins",
+        "Docker",
+        "JUnit/Jest",
+        "Postman",
+        "Trello/Jira",
+      ],
+    },
+  ];
+
   const projects = [
     {
       title: "Passport to Maths Need Analysis Test Automation",
@@ -465,6 +507,27 @@ const Portfolio = () => {
               Tech Blog
             </a>
           </div>
+
+          {/* Skills Section */}
+          <div className="grid md:grid-cols-3 gap-8 mb-8">
+            {skillCategories.map((category) => (
+              <div key={category.title} className="bg-gray-50 rounded-lg p-6">
+                <h3 className="text-xl font-bold mb-4">{category.title}</h3>
+                <ul className="space-y-2">
+                  {category.skills.map((skill) => (
+                    <li
+                      key={skill}
+                      className="text-gray-600 flex items-center gap-2"
+                    >
+                      <div className="w-2 h-2 bg-gray-600 rounded-full"></div>
+                      {skill}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
           <div className="bg-gray-50 p-4 rounded-lg">
             <h2 className="text-lg font-semibold mb-2">About This Portfolio</h2>
             <p className="text-gray-700">
@@ -475,10 +538,22 @@ const Portfolio = () => {
               practices. The tech stack includes:
             </p>
             <ul className="mt-2 space-y-1 text-gray-600">
-              <li>• React.js for dynamic UI components</li>
-              <li>• Tailwind CSS for responsive styling</li>
-              <li>• Next.js for production build</li>
-              <li>• GitHub Actions for automated deployment</li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-gray-600 rounded-full"></div>{" "}
+                React.js for dynamic UI components
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-gray-600 rounded-full"></div>{" "}
+                Tailwind CSS for responsive styling
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-gray-600 rounded-full"></div> Next.js
+                for production build
+              </li>
+              <li className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-gray-600 rounded-full"></div> GitHub
+                Actions for automated deployment
+              </li>
             </ul>
             <p className="mt-4 text-gray-700">
               For a deeper dive into my projects and technical writings, visit
@@ -640,6 +715,14 @@ const Portfolio = () => {
           ))}
         </div>
       </div>
+      {/* Footer */}
+      <footer className="border-t bg-gray-100 mt-16">
+        <div className="py-8 text-center text-sm text-gray-600">
+          <p>
+            © {new Date().getFullYear()} Yasindu Deeyagaha. All rights reserved.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };
