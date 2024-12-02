@@ -8,9 +8,12 @@ import {
   BarChart2,
   Mail,
   Settings,
+  Container,
   Search,
   Calculator,
   Bot,
+  Car,
+  Shield,
   Table,
   Layout,
 } from "lucide-react";
@@ -336,6 +339,7 @@ const Portfolio = () => {
       role: "Frontend Developer",
       videoDemo: {
         url: "./videos/vpms-demo.mp4",
+        posterUrl: "./images/vpms-demo-poster.png",
         description:
           "Interactive demonstration of VPMS features including appointment booking and calculator functionality across desktop and mobile devices.",
       },
@@ -394,6 +398,85 @@ const Portfolio = () => {
         "Facebook Developer App",
         "Messenger Bot API",
         "UI/UX Design",
+      ],
+    },
+    {
+      title: "Automotive Intelligence - IoT Smart Workshop System",
+      period: "2021 March - 2021 June",
+      organization: "Deakin University",
+      role: "Lead Full Stack Developer",
+      description: `Developed an innovative IoT-based system to modernize automotive workshop operations by implementing RFID technology for asset tracking and external API integrations. The system streamlines workshop efficiency and resource management through automated tool tracking, job card generation, inventory management, and vehicle service history monitoring. The project demonstrates implementation of secure authentication, RESTful API design, docker containerization and modern software development best practices including MVC architecture and agile methodologies.`,
+      features: [
+        {
+          title: "Secure Authorisation & Authentication",
+          description:
+            "Implemented Google/Facebook OAuth, SSL encryption with self-signed certificate, and user protected routes",
+          icon: <Shield />,
+        },
+        {
+          title: "Asset Management",
+          description:
+            "RFID-based tool tracking system with real-time location monitoring and usage analytics",
+          icon: <Search />,
+        },
+        {
+          title: "Vehicle Management",
+          description:
+            "Integration with VicRoads API for vehicle registration verification and digital job card generation",
+          icon: <Car />,
+        },
+        {
+          title: "Containerized Deployment",
+          description:
+            "Containerized application using Docker for consistent deployment and scalability",
+          icon: <BarChart2 />,
+        },
+        {
+          title: "System Architecture",
+          description:
+            "Implemented Model-View-Controller architecture for scalability and maintainability",
+          icon: <Layout />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Tool Tracking Time",
+          oldValue: "Manual Process",
+          newValue: "Automated with RFID",
+          improvement: "Significant",
+        },
+        {
+          label: "Vehicle Data Retrieval",
+          oldValue: "2 minutes",
+          newValue: "Under 5 seconds",
+          improvement: "95.8%",
+        },
+        {
+          label: "Workshop Efficiency",
+          value: "40% increase in throughput",
+          type: "achievement",
+        },
+      ],
+      videoDemo: {
+        url: "./videos/automotive-demo.mp4",
+        posterUrl: "./images/automotive-demo-poster.png",
+        description:
+          "System demonstration of key features including user authentication, vehicle data verification, inventory management, and RFID tool tracking across different user roles.",
+      },
+      techStack: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "JavaScript",
+        "EJS",
+        "Docker",
+        "Material CSS",
+        "SSL/TLS",
+        "Socket.IO",
+        "RFID Integration",
+        "Google/Facebook OAuth",
+        "VicRoads API",
+        "MVC Architecture",
       ],
     },
   ];
@@ -604,6 +687,7 @@ const Portfolio = () => {
                       </h3>
                       <VideoDemo
                         videoUrl={project.videoDemo.url}
+                        posterUrl={project.videoDemo.posterUrl}
                         description={project.videoDemo.description}
                       />
                     </div>
