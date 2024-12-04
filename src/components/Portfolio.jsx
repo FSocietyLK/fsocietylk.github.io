@@ -3,19 +3,23 @@ import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import VideoDemo from "@/components/ui/video-demo";
 import DownloadPDFButton from "@/components/ui/download-pdf-button";
 import {
-  Code,
+  Focus,
   Timer,
   BarChart2,
+  ChartLine,
   Mail,
   Settings,
-  Container,
   Search,
   Calculator,
-  Bot,
-  Car,
+  ClipboardCheck,
   Shield,
+  Lock,
+  Bot,
   Table,
   Layout,
+  Server,
+  GitBranch,
+  CircleCheckBig,
 } from "lucide-react";
 
 const Portfolio = () => {
@@ -229,19 +233,19 @@ const Portfolio = () => {
           title: "Responsive Design",
           description:
             "Implemented fully responsive and cross-platform compatible interface",
-          icon: <Code />,
+          icon: <Layout />,
         },
         {
           title: "Client Validation",
           description:
             "Reduced form submission errors by 95% through comprehensive client-side validation",
-          icon: <BarChart2 />,
+          icon: <CircleCheckBig />,
         },
         {
           title: "Accessibility",
           description:
             "Implemented keyboard tabbing focus and proper ARIA labels for better accessibility",
-          icon: <Settings />,
+          icon: <Focus />,
         },
       ],
       metrics: [
@@ -297,7 +301,7 @@ const Portfolio = () => {
           title: "Error Prevention",
           description:
             "Reduced calculation errors by 99.9% through comprehensive input validation",
-          icon: <Settings />,
+          icon: <CircleCheckBig />,
         },
         {
           title: "Enhanced UI",
@@ -341,7 +345,7 @@ const Portfolio = () => {
         url: "./videos/vpms-demo.mp4",
         posterUrl: "./images/vpms-demo-poster.png",
         description:
-          "Interactive demonstration of VPMS features including appointment booking and calculator functionality across desktop and mobile devices.",
+          "Interactive demonstration of VPMS features including appointment booking and calculator functionality across desktop and mobile devices",
       },
     },
     {
@@ -411,25 +415,25 @@ const Portfolio = () => {
           title: "Secure Authorisation & Authentication",
           description:
             "Implemented Google/Facebook OAuth, SSL encryption with self-signed certificate, and user protected routes",
-          icon: <Shield />,
+          icon: <Lock />,
         },
         {
           title: "Asset Management",
           description:
             "RFID-based tool tracking system with real-time location monitoring and usage analytics",
-          icon: <Search />,
+          icon: <Settings />,
         },
         {
           title: "Vehicle Management",
           description:
             "Integration with VicRoads API for vehicle registration verification and digital job card generation",
-          icon: <Car />,
+          icon: <ClipboardCheck />,
         },
         {
           title: "Containerized Deployment",
           description:
             "Containerized application using Docker for consistent deployment and scalability",
-          icon: <BarChart2 />,
+          icon: <Server />,
         },
         {
           title: "System Architecture",
@@ -461,7 +465,7 @@ const Portfolio = () => {
         url: "./videos/automotive-demo.mp4",
         posterUrl: "./images/automotive-demo-poster.png",
         description:
-          "System demonstration of key features including user authentication, vehicle data verification, inventory management, and RFID tool tracking across different user roles.",
+          "System demonstration of key features including user authentication, vehicle data verification, inventory management, and RFID tool tracking across different user roles",
       },
       techStack: [
         "Node.js",
@@ -477,6 +481,156 @@ const Portfolio = () => {
         "Google/Facebook OAuth",
         "VicRoads API",
         "MVC Architecture",
+      ],
+    },
+    {
+      title: "NIST Cybersecurity Framework Web Toolkit",
+      period: "2021 July - 2021 October",
+      organization: "Deakin University - CSRI",
+      role: "Lead Full Stack Developer",
+      description: `Led the development of a comprehensive web-based assessment toolkit using the MERN stack, implementing the NIST Cybersecurity Framework for the Centre for Cyber Security Research and Innovation (CSRI). The system features robust user authentication with OAuth integration, user management, real-time questionnaire assessments, and automated maturity assessment engine that provides detailed recommendations for organizations (SMEs) to evaluate their cybersecurity posture through an advanced questionnaire system across five core phases: Identify, Protect, Detect, Respond, and Recover. The project was developed following agile methodologies and modern software architecture practices.`,
+      features: [
+        {
+          title: "Automated Analysis",
+          description:
+            "Developed a dynamic questionnaire and an intelligent scoring system with detailed, customized, and actionable recommendations for cybersecurity improvements",
+          icon: <ChartLine />,
+        },
+        {
+          title: "Secure Authentication",
+          description:
+            "Integrated Google/Facebook OAuth2.0, and 2FA (Two-factor authentication) via email and SMS-based verification for enhanced account security",
+          icon: <Lock />,
+        },
+        {
+          title: "AI-Powered Assistance",
+          description:
+            "Implemented a Dialogflow chatbot for automated support and FAQ handling, utilizing React-Redux for state consistency",
+          icon: <Bot />,
+        },
+        {
+          title: "Advanced Security",
+          description:
+            "SSL/TLS integration, containerized deployment, and protected route implementation",
+          icon: <Shield />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Assessment Time",
+          oldValue: "Hours of manual review",
+          newValue: "15-20 minutes",
+          improvement: "85%",
+        },
+        {
+          label: "Development Timeline",
+          value: "Completed in 3 successful sprints",
+          type: "achievement",
+        },
+        {
+          label: "Authentication Security",
+          value: "2FA + OAuth Integration",
+          type: "achievement",
+        },
+      ],
+      images: [
+        {
+          src: "./images/nist-initial-sprint.png",
+          alt: "Initial Sprint Developments",
+          caption:
+            "Account creation, login, basic dashboard features and maturity assessment functionality from the first sprint",
+        },
+        {
+          src: "./images/nist-final-sprint.png",
+          alt: "Final Sprint Enhancements",
+          caption:
+            "Comprehensive system features including 2FA verification, assessment dashboard, user management and chatbot from the final sprint",
+        },
+      ],
+      techStack: [
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "React.js",
+        "SCSS/CSS",
+        "Docker",
+        "Webpack/Babel",
+        "OAuth2.0",
+        "Socket.IO",
+        "SSL/TLS",
+        "Git/Bitbucket",
+        "MVC Architecture",
+        "Agile/Scrum",
+      ],
+    },
+    {
+      title: "DevOps Pipeline with Jenkins",
+      period: "2023 June",
+      organization: "Deakin University",
+      role: "DevOps Engineer",
+      description: `Developed and implemented a complete CI/CD pipeline using Jenkins for a simple full-stack Task Manager app. The project demonstrates modern DevOps practices including automated testing, containerized deployment, and continuous integration through a Jenkins pipeline integrated with GitHub webhooks. The pipeline automates the build, test, and deployment processes while ensuring code quality and reliable delivery.`,
+      features: [
+        {
+          title: "Automated Pipeline",
+          description:
+            "Multi-stage Jenkins pipeline with automated build, test, and deployment processes",
+          icon: <Settings />,
+        },
+        {
+          title: "Containerized Deployment",
+          description:
+            "Docker containerization with separate frontend and backend services using docker-compose",
+          icon: <Server />,
+        },
+        {
+          title: "Automated Testing",
+          description:
+            "Integrated Jest testing framework for both frontend and backend with automated test execution",
+          icon: <CircleCheckBig />,
+        },
+        {
+          title: "GitHub Integration",
+          description:
+            "Configured webhooks and SSH authentication for automated pipeline triggers on code push",
+          icon: <GitBranch />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Deployment Time",
+          oldValue: "20+ minutes",
+          newValue: "5-10 minutes",
+          improvement: "65%",
+        },
+        {
+          label: "Build Time",
+          oldValue: "Manual Process",
+          newValue: "Automated in Pipeline",
+          improvement: "Significant",
+        },
+        {
+          label: "Build Process",
+          value: "Fully automated CI/CD",
+          type: "achievement",
+        },
+      ],
+      videoDemo: {
+        url: "./videos/devops-demo.mp4",
+        posterUrl: "./images/devops-demo-poster.png",
+        description:
+          "Demonstration of the complete CI/CD pipeline execution including Jenkins build process, automated testing, Docker deployment, and email notifications.",
+      },
+      techStack: [
+        "Jenkins",
+        "Docker",
+        "Node.js",
+        "React",
+        "Jest",
+        "Webpack",
+        "Babel",
+        "SSH",
+        "GitHub Webhooks",
+        "CI/CD Pipeline",
       ],
     },
   ];
