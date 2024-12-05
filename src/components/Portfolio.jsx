@@ -7,6 +7,7 @@ import {
   Timer,
   BarChart2,
   ChartLine,
+  ShoppingCart,
   Mail,
   Settings,
   Search,
@@ -633,6 +634,72 @@ const Portfolio = () => {
         "CI/CD Pipeline",
       ],
     },
+    {
+      title: "InnovArts Art Gallery Ecommerce Platform",
+      period: "2022 February - 2022 June",
+      organization: "Freelance Project",
+      role: "Full Stack Developer",
+      description: `Designed and developed a fully responsive e-commerce platform for an art gallery startup, featuring an intuitive shopping experience across all devices. The project showcases modern web development practices with a focus on user experience and interactive features. The live website demonstrates smooth navigation, dynamic cart functionality, and responsive design implementation.`,
+      features: [
+        {
+          title: "Responsive Design",
+          description:
+            "Fully responsive layout with optimized user experience across mobile, tablet, and desktop devices",
+          icon: <Layout />,
+        },
+        {
+          title: "Interactive Shopping Cart",
+          description:
+            "Real-time cart management with session persistence and smooth animations",
+          icon: <ShoppingCart />,
+        },
+        {
+          title: "Live Production Deployment",
+          description:
+            "Deployed frontend and backend to web hosting platform with SSL security and database integration",
+          icon: <Server />,
+        },
+      ],
+      metrics: [
+        {
+          label: "User Experience",
+          value: "Seamless across devices",
+          type: "achievement",
+        },
+        {
+          label: "Browser Compatibility",
+          value: "98% cross-browser support",
+          type: "achievement",
+        },
+        {
+          label: "SSL Certificate",
+          value: "HTTPS encrypted data transmission",
+          type: "achievement",
+        },
+      ],
+      videoDemo: {
+        url: "./videos/innovarts-demo.mp4",
+        posterUrl: "./images/innovarts-demo-poster.png",
+        description:
+          "Demonstration of the complete user journey including responsive design, shopping cart functionality, and checkout process across different devices.",
+      },
+      liveDemo: {
+        url: "https://innovarts.infy.uk",
+        note: "View the live implementation to experience the responsive design and interactive features firsthand.",
+      },
+      techStack: [
+        "HTML5",
+        "CSS3",
+        "Bootstrap",
+        "JavaScript",
+        "jQuery/AJAX",
+        "PHP",
+        "MySQL",
+        "Responsive Design",
+        "Session Management",
+        "Web Hosting",
+      ],
+    },
   ];
 
   return (
@@ -830,6 +897,66 @@ const Portfolio = () => {
                         Project Overview
                       </h3>
                       <p className="text-gray-700">{project.description}</p>
+                    </div>
+                  )}
+
+                  {/* Live Demo */}
+                  {project.liveDemo && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">Live Demo</h3>
+                      <div className="bg-gray-50 p-6 rounded-lg border border-gray-200">
+                        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
+                          <div className="flex-grow">
+                            <p className="text-gray-700 mb-2">
+                              <span className="font-semibold">
+                                Experience the live website:
+                              </span>{" "}
+                              Explore the responsive design, interactive
+                              features, and secure browsing with SSL encryption.
+                            </p>
+                            <p className="text-sm text-gray-600">
+                              {project.liveDemo.note}
+                            </p>
+                          </div>
+                          <a
+                            href={project.liveDemo.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors whitespace-nowrap"
+                          >
+                            View Live Site
+                            <svg
+                              className="w-5 h-5"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                              />
+                            </svg>
+                          </a>
+                        </div>
+                        <div className="inline-flex items-center gap-2 mt-4 -ml-1 px-2 py-0.5 rounded-full text-xs bg-green-100 text-green-800">
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            stroke="currentColor"
+                            viewBox="0 0 24 24"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                            />
+                          </svg>
+                          <span>Secured with SSL Certificate (HTTPS)</span>
+                        </div>
+                      </div>
                     </div>
                   )}
 
