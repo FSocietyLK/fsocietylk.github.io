@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card";
 import VideoDemo from "@/components/ui/video-demo";
 import DownloadPDFButton from "@/components/ui/download-pdf-button";
@@ -9,6 +9,7 @@ import {
   ChartLine,
   ShoppingCart,
   Mail,
+  Activity,
   Settings,
   Search,
   Calculator,
@@ -24,6 +25,29 @@ import {
 } from "lucide-react";
 
 const Portfolio = () => {
+  // Handle URL hash navigation
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (hash) {
+      setTimeout(() => {
+        scrollToSection(hash);
+      }, 100);
+    }
+  }, []);
+
+  // Scroll function
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  // Generate unique ID for each project
+  const getProjectId = (title) => {
+    return title.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  };
+
   const skillCategories = [
     {
       title: "Frontend Development",
@@ -700,6 +724,92 @@ const Portfolio = () => {
         "Web Hosting",
       ],
     },
+    {
+      title: "Advanced Intrusion Detection System with ML-based Correlation",
+      period: "2018 March - 2018 October",
+      organization: "SLIIT - Research Project",
+      role: "Lead Developer & Researcher",
+      description: `Developed an innovative intrusion detection system integrating Host-based and Network-based IDS with machine learning and rule-based alert correlation techniques to address the limitations of traditional IDS. Built a custom correlation engine using Python and Prelude SIEM to analyze and correlate both OSSEC HIDS and Snort NIDS alerts. The system significantly improved threat detection accuracy while reducing false positives and providing an actionable alert, leading to a published research paper in the International Journal of Advanced Computer Science and Applications.`,
+      features: [
+        {
+          title: "Unified Detection",
+          description:
+            "Integrated HIDS (OSSEC) and NIDS (Snort) capabilities with centralized management and standardized IDMEF alerts",
+          icon: <Shield />,
+        },
+        {
+          title: "ML Correlation",
+          description:
+            "Advanced correlation engine using rule-based techniques and KNN classifier for alert verification",
+          icon: <Search />,
+        },
+        {
+          title: "Automated Management",
+          description:
+            "Real-time monitoring and alert processing with automated prioritization and notification system",
+          icon: <Activity />,
+        },
+        {
+          title: "Performance Analysis",
+          description:
+            "Comprehensive testing showing significant reduction in false positives while maintaining detection accuracy",
+          icon: <BarChart2 />,
+        },
+      ],
+      metrics: [
+        {
+          label: "False Positive Rate",
+          oldValue: "Traditional IDS baseline",
+          newValue: "Significant reduction",
+          improvement: "65%",
+        },
+        {
+          label: "Detection Accuracy",
+          value: "94% with ML correlation",
+          type: "achievement",
+        },
+        {
+          label: "Research Impact",
+          value: "Published in IJACSA",
+          type: "achievement",
+        },
+      ],
+      images: [
+        {
+          src: "./images/ids-system-interfaces.png",
+          alt: "IDS System Interfaces Collection",
+          caption:
+            "Comprehensive view of the IDS system showing alert correlation process: SSH brute force detection through multiple login attempts, correlation analysis, detailed alert views, sensor monitoring interfaces, and system management dashboards",
+        },
+        {
+          src: "./images/ids-ml-analysis.png",
+          alt: "Machine Learning Analysis Interfaces",
+          caption:
+            "Machine learning analysis demonstrating data preprocessing, feature engineering, correlation analysis, and model evaluation: includes correlation rule formats, dataset analysis, feature importance visualizations, alert mapping tables, and prediction results",
+        },
+      ],
+      techStack: [
+        "Python",
+        "TensorFlow",
+        "OSSEC HIDS",
+        "Snort NIDS",
+        "Prelude SIEM",
+        "XML",
+        "IDMEF",
+        "MySQL",
+        "Machine Learning",
+        "KNN Classifier",
+        "Linux",
+      ],
+      externalLinks: [
+        {
+          type: "publication",
+          title: "See Publication",
+          url: "https://thesai.org/Downloads/Volume9No9/Paper_47-Intrusion_Detection_System.pdf",
+          note: "Research paper published in International Journal of Advanced Computer Science and Applications (IJACSA)",
+        },
+      ],
+    },
   ];
 
   return (
@@ -872,7 +982,7 @@ const Portfolio = () => {
         <div className="space-y-8">
           <h2 className="text-3xl font-bold px-4 -mb-2">Featured Projects</h2>
           {projects.map((project, index) => (
-            <Card key={index} className="mb-8">
+            <Card key={index} className="mb-8" id={getProjectId(project.title)}>
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div>
@@ -1070,6 +1180,60 @@ const Portfolio = () => {
                           >
                             {tech}
                           </span>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+
+                  {/* External Links */}
+                  {project.externalLinks && (
+                    <div>
+                      <h3 className="text-xl font-semibold mb-4">
+                        Additional Resources
+                      </h3>
+                      <div className="grid md:grid-cols-2 gap-4">
+                        {project.externalLinks.map((link, idx) => (
+                          <div
+                            key={idx}
+                            className="bg-gray-50 p-4 rounded-lg border border-gray-200"
+                          >
+                            <div className="flex flex-col space-y-3">
+                              <div className="flex items-start justify-between">
+                                <h4 className="font-semibold text-lg">
+                                  {link.type === "publication"
+                                    ? "Research Publication"
+                                    : "Technical Blog"}
+                                </h4>
+                                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full uppercase">
+                                  {link.type}
+                                </span>
+                              </div>
+                              <p className="text-sm text-gray-600">
+                                {link.note}
+                              </p>
+                              <a
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium"
+                              >
+                                {link.title}
+                                <svg
+                                  className="w-4 h-4"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  viewBox="0 0 24 24"
+                                >
+                                  <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    strokeWidth={2}
+                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                  />
+                                </svg>
+                              </a>
+                            </div>
+                          </div>
                         ))}
                       </div>
                     </div>
