@@ -507,6 +507,14 @@ const Portfolio = () => {
         "VicRoads API",
         "MVC Architecture",
       ],
+      externalLinks: [
+        {
+          type: "github",
+          title: "View Source Code",
+          url: "https://github.com/FSocietyLK/Automotive-Intelligence",
+          note: "Complete codebase including IoT integration, secure authentication, and real-time functionality",
+        },
+      ],
     },
     {
       title: "NIST Cybersecurity Framework Web Toolkit",
@@ -657,9 +665,17 @@ const Portfolio = () => {
         "GitHub Webhooks",
         "CI/CD Pipeline",
       ],
+      externalLinks: [
+        {
+          type: "github",
+          title: "View Source Code",
+          url: "https://github.com/FSocietyLK/Task-Manager",
+          note: "Source code for both frontend React application and Node.js backend with Jenkins pipeline configuration",
+        },
+      ],
     },
     {
-      title: "InnovArts Art Gallery Ecommerce Platform",
+      title: "InnovArts - Art Gallery Ecommerce Platform",
       period: "2022 February - 2022 June",
       organization: "Freelance Project",
       role: "Full Stack Developer",
@@ -722,6 +738,14 @@ const Portfolio = () => {
         "Responsive Design",
         "Session Management",
         "Web Hosting",
+      ],
+      externalLinks: [
+        {
+          type: "github",
+          title: "View Source Code",
+          url: "https://github.com/FSocietyLK/Innovarts",
+          note: "Complete source code including frontend responsive design and cart functionality",
+        },
       ],
     },
     {
@@ -807,6 +831,140 @@ const Portfolio = () => {
           title: "See Publication",
           url: "https://thesai.org/Downloads/Volume9No9/Paper_47-Intrusion_Detection_System.pdf",
           note: "Research paper published in International Journal of Advanced Computer Science and Applications (IJACSA)",
+        },
+      ],
+    },
+    {
+      title: "Library Management System",
+      period: "2016 August - 2016 November",
+      organization: "SLIIT",
+      role: "Software Developer",
+      description: `Developed a standalone Library Management System to streamline library operations through an intuitive interface. The system features comprehensive book management, user authentication, and reporting capabilities, packaged as a Windows executable for easy deployment. The application demonstrates robust database integration and efficient report generation using JasperReports.`,
+      features: [
+        {
+          title: "Standalone Application",
+          description:
+            "Windows executable package with seamless installation process and database setup",
+          icon: <Settings />,
+        },
+        {
+          title: "Book Management",
+          description:
+            "Comprehensive system for adding, editing, and managing book records with intuitive controls",
+          icon: <Layout />,
+        },
+        {
+          title: "Advanced Reporting",
+          description:
+            "Dynamic report generation using iReport for operations analysis and tracking",
+          icon: <BarChart2 />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Processing Speed",
+          oldValue: "Manual tracking",
+          newValue: "Real-time updates",
+          improvement: "75%",
+        },
+        {
+          label: "Record Accuracy",
+          value: "99.9% data integrity",
+          type: "achievement",
+        },
+      ],
+      videoDemo: {
+        url: "./videos/library-demo.mp4",
+        posterUrl: "./images/library-demo-poster.png",
+        description:
+          "Walkthrough of the library management system showcasing book management, borrowing process, and reporting functionalities",
+      },
+      techStack: [
+        "Java",
+        "Maven",
+        "MySQL",
+        "JDBC",
+        "JasperReports",
+        "iReport",
+        "NetBeans IDE",
+        "Windows Executable",
+      ],
+      externalLinks: [
+        {
+          type: "github",
+          title: "View Source Code",
+          url: "https://github.com/FSocietyLK/Library-Management-System",
+          note: "Complete source code including database schema and report templates",
+        },
+      ],
+    },
+    {
+      title: "File Encryptor - Secure File Protection System",
+      period: "2016 April - 2016 June",
+      organization: "SLIIT",
+      role: "Solo Developer",
+      description: `Developed a standalone Windows application for secure file encryption and decryption using AES algorithm. The application features a user-friendly interface for batch file processing, custom destination directories, and robust error handling. Implemented with strong security measures including self-signed certificate for secure installation and 256-bit AES encryption for file protection.`,
+      features: [
+        {
+          title: "Advanced Data Protection",
+          description:
+            "256-bit AES encryption implementation with secure password-based key generation",
+          icon: <Lock />,
+        },
+        {
+          title: "Batch Processing",
+          description:
+            "Multi-file encryption/decryption support with custom output directory selection",
+          icon: <Settings />,
+        },
+        {
+          title: "Secure Deployment",
+          description:
+            "Packaged as a Windows executable, signed with a self-signed certificate for secure and seamless installation and execution",
+          icon: <Shield />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Processing Speed",
+          value: "4KB block optimization",
+          type: "achievement",
+        },
+        {
+          label: "Data Protection",
+          value: "100% file integrity",
+          type: "achievement",
+        },
+      ],
+      images: [
+        {
+          src: "./images/encryptor-workflow.png",
+          alt: "File Encryptor Workflow Steps",
+          caption:
+            "Complete workflow demonstration: Installation, file selection, encryption process, and successful decryption verification",
+        },
+      ],
+      techStack: [
+        "C#",
+        ".NET Framework",
+        "Windows Forms",
+        "AES Cryptography",
+        "Visual Studio",
+        "Digital Certificate",
+        "Windows Executable",
+      ],
+      externalLinks: [
+        {
+          type: "github",
+          title: "View Source Code",
+          url: "https://github.com/FSocietyLK/File-Encryptor",
+          note: "Source code featuring AES encryption implementation and Windows Forms interface",
+        },
+        {
+          type: "blog",
+          title: "Read Blog Post",
+          url: "https://fsocietylk.wordpress.com/2017/03/21/ransomware/",
+          note: "Detailed technical walkthrough of the encryption process and implementation details",
         },
       ],
     },
@@ -1202,9 +1360,13 @@ const Portfolio = () => {
                                 <h4 className="font-semibold text-lg">
                                   {link.type === "publication"
                                     ? "Research Publication"
+                                    : link.type === "github"
+                                    ? "Source Code"
                                     : "Technical Blog"}
                                 </h4>
-                                <span className="px-2 py-1 bg-green-100 text-green-800 text-xs rounded-full uppercase">
+                                <span
+                                  className={`px-2 py-1 text-xs rounded-full bg-green-100 text-green-800 uppercase`}
+                                >
                                   {link.type}
                                 </span>
                               </div>
@@ -1215,22 +1377,46 @@ const Portfolio = () => {
                                 href={link.url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="inline-flex items-center gap-2 text-blue-600 hover:text-blue-800 font-medium"
+                                className={`inline-flex items-center gap-2 font-medium ${
+                                  link.type === "github"
+                                    ? "text-gray-800 hover:text-gray-600"
+                                    : "text-blue-600 hover:text-blue-800"
+                                }`}
                               >
-                                {link.title}
-                                <svg
-                                  className="w-4 h-4"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  viewBox="0 0 24 24"
-                                >
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                  />
-                                </svg>
+                                {link.type === "github" ? (
+                                  <>
+                                    <svg
+                                      className="w-5 h-5"
+                                      fill="currentColor"
+                                      viewBox="0 0 24 24"
+                                      aria-hidden="true"
+                                    >
+                                      <path
+                                        fillRule="evenodd"
+                                        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"
+                                        clipRule="evenodd"
+                                      />
+                                    </svg>
+                                    {link.title}
+                                  </>
+                                ) : (
+                                  <>
+                                    {link.title}
+                                    <svg
+                                      className="w-4 h-4"
+                                      fill="none"
+                                      stroke="currentColor"
+                                      viewBox="0 0 24 24"
+                                    >
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                      />
+                                    </svg>
+                                  </>
+                                )}
                               </a>
                             </div>
                           </div>
