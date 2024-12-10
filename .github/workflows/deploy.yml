@@ -27,7 +27,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          NEXT_PUBLIC_BASE_PATH: /your-repo-name # Add this if your repo is not username.github.io
+          NEXT_PUBLIC_BASE_PATH: /fsocietylk.github.io
 
       - name: Add .nojekyll file
         run: |

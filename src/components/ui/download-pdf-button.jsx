@@ -19,7 +19,7 @@ const DownloadPDFButton = ({ contentId, fileName = "download.pdf" }) => {
 
     try {
       const canvas = await html2canvas(content, {
-        scale: 2.5,
+        scale: 2,
         useCORS: true,
         logging: false,
         imageTimeout: 0,

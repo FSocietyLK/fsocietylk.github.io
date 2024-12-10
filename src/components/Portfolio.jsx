@@ -882,6 +882,7 @@ const Portfolio = () => {
       techStack: [
         "Java",
         "Maven",
+        "Swing UI",
         "MySQL",
         "JDBC",
         "JasperReports",
