@@ -92,344 +92,6 @@ const Portfolio = () => {
 
   const projects = [
     {
-      title: "Passport to Maths Need Analysis Test Automation",
-      period: "August 2024 - October 2024",
-      organization: "Monash College",
-      role: "Moodle Plugin Developer",
-      description: `Developed and implemented an automated system for the Passport to Maths program that analyzes student test performance and generates personalized module recommendations. The system features a sophisticated module allocation algorithm and automated email generation, significantly reducing administrative workload while maintaining high accuracy in recommendations.`,
-      features: [
-        {
-          title: "Intelligent Module Allocation",
-          description:
-            "Automated analysis of student performance data using a BFS-based algorithm to recommend appropriate learning modules",
-          icon: <Settings />,
-        },
-        {
-          title: "Personalized Email Generation",
-          description:
-            "Automated creation and formatting of personalized emails containing module recommendations and next steps for each student",
-          icon: <Mail />,
-        },
-        {
-          title: "Performance Optimization",
-          description:
-            "Significantly improved processing speed through optimized data structures and algorithms",
-          icon: <Timer />,
-        },
-        {
-          title: "Data Integration",
-          description:
-            "Seamless integration with Moodle LMS and existing spreadsheet-based workflows",
-          icon: <BarChart2 />,
-        },
-      ],
-      metrics: [
-        {
-          label: "Module Processing Speed",
-          oldValue: "57.1s",
-          newValue: "19s",
-          improvement: "66.7%",
-        },
-        {
-          label: "Email Generation",
-          oldValue: "15 min",
-          newValue: "3 min",
-          improvement: "80%",
-        },
-        {
-          label: "Student Retention",
-          value: "92% completion rate",
-          type: "achievement",
-        },
-      ],
-      techStack: [
-        "Google Apps Script",
-        "JavaScript",
-        "Moodle Integration",
-        "CSV Processing",
-        "Drive API",
-        "BFS Algorithm",
-      ],
-      images: [
-        {
-          src: "./images/module-recommendation.png",
-          alt: "Module Recommendation Interface",
-          caption:
-            "Module Recommendation Dashboard with automated data processing",
-        },
-        {
-          src: "./images/email-template.png",
-          alt: "Automated Email Template",
-          caption: "Personalized email generation with module recommendations",
-        },
-      ],
-    },
-    {
-      title: "P2M Reporting System Automation",
-      period: "October 2024 - November 2024",
-      organization: "Monash College",
-      role: "Moodle Plugin Developer",
-      description:
-        "Developed a scalable automation solution for a comprehensive learning analytics system that automated the process of preparing and generating three key reports for student journey analysis. Streamlined data extraction, cleaning, and integration processes from CSV files into Google Sheets, featuring dynamic reporting for NAT completion, module allocation, and engagement analysis.",
-      images: [
-        {
-          src: "./images/p2m-report.png",
-          alt: "P2M Progress Report Interface",
-          caption:
-            "Master dataset showing module allocation across different math units",
-        },
-        {
-          src: "./images/p2m-flow.png",
-          alt: "P2M System Process Flow",
-          caption:
-            "Automated reporting system workflow showing data preparation, NAT processing, and report generation stages",
-        },
-      ],
-      features: [
-        {
-          title: "Automated Report Generation",
-          description:
-            "Implemented dynamic report generation system handling multiple data sources and complex calculations",
-          icon: <BarChart2 />,
-        },
-        {
-          title: "Data Integration",
-          description:
-            "Built robust data validation and error handling mechanisms for CSV processing",
-          icon: <Settings />,
-        },
-        {
-          title: "Formula Optimization",
-          description:
-            "Utilized advanced formula expressions for efficient data processing and calculations",
-          icon: <Calculator />,
-        },
-        {
-          title: "Performance Enhancement",
-          description:
-            "Optimized system performance through efficient data structures and parallel processing",
-          icon: <Timer />,
-        },
-      ],
-      metrics: [
-        {
-          label: "Manual Workload Reduction",
-          oldValue: "100%",
-          newValue: "20%",
-          improvement: "80%",
-        },
-        {
-          label: "Report Generation Time",
-          oldValue: "4 hours",
-          newValue: "15 minutes",
-          improvement: "93.75%",
-        },
-        {
-          label: "Data Accuracy",
-          value: "99.9%",
-          type: "achievement",
-        },
-      ],
-      techStack: [
-        "JavaScript/Apps Script",
-        "Google Sheets",
-        "Drive API",
-        "Array Formulas",
-        "CSV Processing",
-      ],
-    },
-    {
-      title: "VPMS Appointment Booking Widget",
-      period: "December 2022",
-      organization: "VetCheck",
-      role: "Frontend Developer",
-      description:
-        "Designed and implemented a user-friendly Appointment Booking Widget for the VetCheck Veterinary Practice Management System (VPMS). This widget serves as a floating UI component that allows clients' customers to schedule appointments conveniently, featuring responsive design and accessibility considerations.",
-      images: [
-        {
-          src: "./images/booking-widget.png",
-          alt: "VPMS Appointment Booking Widget Interface",
-          caption:
-            "Progressive booking interface showing date selection, client information, and appointment details",
-        },
-      ],
-      features: [
-        {
-          title: "Responsive Design",
-          description:
-            "Implemented fully responsive and cross-platform compatible interface",
-          icon: <Layout />,
-        },
-        {
-          title: "Client Validation",
-          description:
-            "Reduced form submission errors by 95% through comprehensive client-side validation",
-          icon: <CircleCheckBig />,
-        },
-        {
-          title: "Accessibility",
-          description:
-            "Implemented keyboard tabbing focus and proper ARIA labels for better accessibility",
-          icon: <Focus />,
-        },
-      ],
-      metrics: [
-        {
-          label: "Client Satisfaction",
-          value: "Excellent Feedback",
-          type: "achievement",
-        },
-        {
-          label: "Appointment Booking Time",
-          oldValue: "5+ minutes",
-          newValue: "Under 2 minutes",
-          improvement: "60%",
-        },
-        {
-          label: "User Experience",
-          value: "95% usability rating",
-          type: "achievement",
-        },
-      ],
-      techStack: [
-        "JavaScript",
-        "jQuery",
-        "HTML",
-        "CSS",
-        "UI/UX Design",
-        "Chrome Dev Tools",
-      ],
-    },
-    {
-      title: "VPMS Calculator Widget & Search",
-      period: "January 2023",
-      organization: "VetCheck",
-      role: "Frontend Developer",
-      description:
-        "Rebuilt the Calculator Widget addressing computational issues and implemented an intuitive Search Functionality. Fixed critical floating-point arithmetic issues and enhanced UI responsiveness.Resolved and Fixed critical floating-point arithmetic inaccuracies, percentage calculation bugs, and enhanced UI responsiveness while adding new features like keyboard bindings.",
-      images: [
-        {
-          src: "./images/calculator-search.png",
-          alt: "VPMS Calculator and Search Interface",
-          caption:
-            "Integrated calculator widget and help center search functionality showing dynamic article filtering and improved arithmetic precision",
-        },
-      ],
-      features: [
-        {
-          title: "Advanced Calculations",
-          description:
-            "Implemented precise floating-point arithmetic and complex calculations",
-          icon: <Calculator />,
-        },
-        {
-          title: "Error Prevention",
-          description:
-            "Reduced calculation errors by 99.9% through comprehensive input validation",
-          icon: <CircleCheckBig />,
-        },
-        {
-          title: "Enhanced UI",
-          description:
-            "Developed responsive interface with keyboard shortcuts and intuitive controls",
-          icon: <Layout />,
-        },
-        {
-          title: "Search Functionality",
-          description: "Developed dynamic search with keyword-based filtering",
-          icon: <Search />,
-        },
-      ],
-      metrics: [
-        {
-          label: "Calculation Accuracy",
-          value: "100%",
-          type: "achievement",
-        },
-        {
-          label: "Search Response Time",
-          oldValue: "20-30 seconds manually",
-          newValue: "Under 100ms",
-          improvement: "95.5%",
-        },
-      ],
-      techStack: [
-        "Pure JavaScript",
-        "HTML",
-        "CSS",
-        "Decimal.js",
-        "UI/UX Design",
-      ],
-    },
-    {
-      title: "VPMS Features Demonstration",
-      period: "November 2022 - January 2023",
-      organization: "VetCheck",
-      role: "Frontend Developer",
-      videoDemo: {
-        url: "./videos/vpms-demo.mp4",
-        posterUrl: "./images/vpms-demo-poster.png",
-        description:
-          "Interactive demonstration of VPMS features including appointment booking and calculator functionality across desktop and mobile devices",
-      },
-    },
-    {
-      title: "SRR Monitor UI & Dialogflow Bot",
-      period: "February 2023",
-      organization: "VetCheck",
-      role: "Full Stack Developer",
-      description:
-        "Designed the SRR Monitor Sheet UI for streamlined data entry and researched AI-powered chatbot integration using Dialogflow. Developed a proof-of-concept for an intelligent FAQ filtering system by integrating Google's Dialogflow API for natural language processing and intent recognition, with implementation through the Facebook Developer App for user interaction.",
-      images: [
-        {
-          src: "./images/srr-monitor.png",
-          alt: "SRR Monitor Sheet and FAQ Interface",
-          caption:
-            "Dynamic SRR monitoring interface with integrated FAQ search functionality",
-        },
-        {
-          src: "./images/dialogflow-bot.png",
-          alt: "Dialogflow Messenger Bot Interface",
-          caption:
-            "AI-powered chatbot prototype for automated customer support",
-        },
-      ],
-      features: [
-        {
-          title: "Dynamic UI Generation",
-          description:
-            "Implemented dynamic table generation for efficient data entry",
-          icon: <Table />,
-        },
-        {
-          title: "AI Integration",
-          description:
-            "Researched and prototyped AI-powered chatbot using Dialogflow",
-          icon: <Bot />,
-        },
-      ],
-      metrics: [
-        {
-          label: "Workflow Efficiency",
-          oldValue: "Manual process",
-          newValue: "Automated",
-          improvement: "Significant",
-        },
-        {
-          label: "User Productivity",
-          value: "60% increase",
-          type: "achievement",
-        },
-      ],
-      techStack: [
-        "JavaScript",
-        "Google Dialogflow API",
-        "Facebook Developer App",
-        "Messenger Bot API",
-        "UI/UX Design",
-      ],
-    },
-    {
       title: "Automotive Intelligence - IoT Smart Workshop System",
       period: "2021 March - 2021 June",
       organization: "Deakin University",
@@ -513,6 +175,157 @@ const Portfolio = () => {
           title: "View Source Code",
           url: "https://github.com/FSocietyLK/Automotive-Intelligence",
           note: "Complete codebase including IoT integration, secure authentication, and real-time functionality",
+        },
+      ],
+    },
+    {
+      title: "InnovArts - Art Gallery Ecommerce Platform",
+      period: "2022 February - 2022 June",
+      organization: "Freelance Project",
+      role: "Full Stack Developer",
+      description: `Designed and developed a fully responsive e-commerce platform for an art gallery startup, featuring an intuitive shopping experience across all devices. The project showcases modern web development practices with a focus on user experience and interactive features. The live website demonstrates smooth navigation, dynamic cart functionality, and responsive design implementation.`,
+      features: [
+        {
+          title: "Responsive Design",
+          description:
+            "Fully responsive layout with optimized user experience across mobile, tablet, and desktop devices",
+          icon: <Layout />,
+        },
+        {
+          title: "Interactive Shopping Cart",
+          description:
+            "Real-time cart management with session persistence and smooth animations",
+          icon: <ShoppingCart />,
+        },
+        {
+          title: "Live Production Deployment",
+          description:
+            "Deployed frontend and backend to web hosting platform with SSL security and database integration",
+          icon: <Server />,
+        },
+      ],
+      metrics: [
+        {
+          label: "User Experience",
+          value: "Seamless across devices",
+          type: "achievement",
+        },
+        {
+          label: "Browser Compatibility",
+          value: "98% cross-browser support",
+          type: "achievement",
+        },
+        {
+          label: "SSL Certificate",
+          value: "HTTPS encrypted data transmission",
+          type: "achievement",
+        },
+      ],
+      videoDemo: {
+        url: "./videos/innovarts-demo.mp4",
+        posterUrl: "./images/innovarts-demo-poster.png",
+        description:
+          "Demonstration of the complete user journey including responsive design, shopping cart functionality, and checkout process across different devices.",
+      },
+      liveDemo: {
+        url: "https://innovarts.infy.uk",
+        note: "View the live implementation to experience the responsive design and interactive features firsthand.",
+      },
+      techStack: [
+        "HTML5",
+        "CSS3",
+        "Bootstrap",
+        "JavaScript",
+        "jQuery/AJAX",
+        "PHP",
+        "MySQL",
+        "Responsive Design",
+        "Session Management",
+        "Web Hosting",
+      ],
+      externalLinks: [
+        {
+          type: "github",
+          title: "View Source Code",
+          url: "https://github.com/FSocietyLK/Innovarts",
+          note: "Complete source code including frontend responsive design and cart functionality",
+        },
+      ],
+    },
+    {
+      title: "VPMS Features Demonstration",
+      period: "November 2022 - January 2023",
+      organization: "VetCheck",
+      role: "Frontend Developer",
+      videoDemo: {
+        url: "./videos/vpms-demo.mp4",
+        posterUrl: "./images/vpms-demo-poster.png",
+        description:
+          "Interactive demonstration of VPMS features including appointment booking and calculator functionality across desktop and mobile devices",
+      },
+    },
+    {
+      title: "Library Management System",
+      period: "2016 August - 2016 November",
+      organization: "SLIIT",
+      role: "Software Developer",
+      description: `Developed a standalone Library Management System to streamline library operations through an intuitive interface. The system features comprehensive book management, user authentication, and reporting capabilities, packaged as a Windows executable for easy deployment. The application demonstrates robust database integration and efficient report generation using JasperReports.`,
+      features: [
+        {
+          title: "Standalone Application",
+          description:
+            "Windows executable package with seamless installation process and database setup",
+          icon: <Settings />,
+        },
+        {
+          title: "Book Management",
+          description:
+            "Comprehensive system for adding, editing, and managing book records with intuitive controls",
+          icon: <Layout />,
+        },
+        {
+          title: "Advanced Reporting",
+          description:
+            "Dynamic report generation using iReport for operations analysis and tracking",
+          icon: <BarChart2 />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Processing Speed",
+          oldValue: "Manual tracking",
+          newValue: "Real-time updates",
+          improvement: "75%",
+        },
+        {
+          label: "Record Accuracy",
+          value: "99.9% data integrity",
+          type: "achievement",
+        },
+      ],
+      videoDemo: {
+        url: "./videos/library-demo.mp4",
+        posterUrl: "./images/library-demo-poster.png",
+        description:
+          "Walkthrough of the library management system showcasing book management, borrowing process, and reporting functionalities",
+      },
+      techStack: [
+        "Java",
+        "Maven",
+        "Swing UI",
+        "MySQL",
+        "JDBC",
+        "JasperReports",
+        "iReport",
+        "NetBeans IDE",
+        "Windows Executable",
+      ],
+      externalLinks: [
+        {
+          type: "github",
+          title: "View Source Code",
+          url: "https://github.com/FSocietyLK/Library-Management-System",
+          note: "Complete source code including database schema and report templates",
         },
       ],
     },
@@ -675,80 +488,6 @@ const Portfolio = () => {
       ],
     },
     {
-      title: "InnovArts - Art Gallery Ecommerce Platform",
-      period: "2022 February - 2022 June",
-      organization: "Freelance Project",
-      role: "Full Stack Developer",
-      description: `Designed and developed a fully responsive e-commerce platform for an art gallery startup, featuring an intuitive shopping experience across all devices. The project showcases modern web development practices with a focus on user experience and interactive features. The live website demonstrates smooth navigation, dynamic cart functionality, and responsive design implementation.`,
-      features: [
-        {
-          title: "Responsive Design",
-          description:
-            "Fully responsive layout with optimized user experience across mobile, tablet, and desktop devices",
-          icon: <Layout />,
-        },
-        {
-          title: "Interactive Shopping Cart",
-          description:
-            "Real-time cart management with session persistence and smooth animations",
-          icon: <ShoppingCart />,
-        },
-        {
-          title: "Live Production Deployment",
-          description:
-            "Deployed frontend and backend to web hosting platform with SSL security and database integration",
-          icon: <Server />,
-        },
-      ],
-      metrics: [
-        {
-          label: "User Experience",
-          value: "Seamless across devices",
-          type: "achievement",
-        },
-        {
-          label: "Browser Compatibility",
-          value: "98% cross-browser support",
-          type: "achievement",
-        },
-        {
-          label: "SSL Certificate",
-          value: "HTTPS encrypted data transmission",
-          type: "achievement",
-        },
-      ],
-      videoDemo: {
-        url: "./videos/innovarts-demo.mp4",
-        posterUrl: "./images/innovarts-demo-poster.png",
-        description:
-          "Demonstration of the complete user journey including responsive design, shopping cart functionality, and checkout process across different devices.",
-      },
-      liveDemo: {
-        url: "https://innovarts.infy.uk",
-        note: "View the live implementation to experience the responsive design and interactive features firsthand.",
-      },
-      techStack: [
-        "HTML5",
-        "CSS3",
-        "Bootstrap",
-        "JavaScript",
-        "jQuery/AJAX",
-        "PHP",
-        "MySQL",
-        "Responsive Design",
-        "Session Management",
-        "Web Hosting",
-      ],
-      externalLinks: [
-        {
-          type: "github",
-          title: "View Source Code",
-          url: "https://github.com/FSocietyLK/Innovarts",
-          note: "Complete source code including frontend responsive design and cart functionality",
-        },
-      ],
-    },
-    {
       title: "Advanced Intrusion Detection System with ML-based Correlation",
       period: "2018 March - 2018 October",
       organization: "SLIIT - Research Project",
@@ -835,71 +574,6 @@ const Portfolio = () => {
       ],
     },
     {
-      title: "Library Management System",
-      period: "2016 August - 2016 November",
-      organization: "SLIIT",
-      role: "Software Developer",
-      description: `Developed a standalone Library Management System to streamline library operations through an intuitive interface. The system features comprehensive book management, user authentication, and reporting capabilities, packaged as a Windows executable for easy deployment. The application demonstrates robust database integration and efficient report generation using JasperReports.`,
-      features: [
-        {
-          title: "Standalone Application",
-          description:
-            "Windows executable package with seamless installation process and database setup",
-          icon: <Settings />,
-        },
-        {
-          title: "Book Management",
-          description:
-            "Comprehensive system for adding, editing, and managing book records with intuitive controls",
-          icon: <Layout />,
-        },
-        {
-          title: "Advanced Reporting",
-          description:
-            "Dynamic report generation using iReport for operations analysis and tracking",
-          icon: <BarChart2 />,
-        },
-      ],
-      metrics: [
-        {
-          label: "Processing Speed",
-          oldValue: "Manual tracking",
-          newValue: "Real-time updates",
-          improvement: "75%",
-        },
-        {
-          label: "Record Accuracy",
-          value: "99.9% data integrity",
-          type: "achievement",
-        },
-      ],
-      videoDemo: {
-        url: "./videos/library-demo.mp4",
-        posterUrl: "./images/library-demo-poster.png",
-        description:
-          "Walkthrough of the library management system showcasing book management, borrowing process, and reporting functionalities",
-      },
-      techStack: [
-        "Java",
-        "Maven",
-        "Swing UI",
-        "MySQL",
-        "JDBC",
-        "JasperReports",
-        "iReport",
-        "NetBeans IDE",
-        "Windows Executable",
-      ],
-      externalLinks: [
-        {
-          type: "github",
-          title: "View Source Code",
-          url: "https://github.com/FSocietyLK/Library-Management-System",
-          note: "Complete source code including database schema and report templates",
-        },
-      ],
-    },
-    {
       title: "File Encryptor - Secure File Protection System",
       period: "2016 April - 2016 June",
       organization: "SLIIT",
@@ -967,6 +641,332 @@ const Portfolio = () => {
           url: "https://fsocietylk.wordpress.com/2017/03/21/ransomware/",
           note: "Detailed technical walkthrough of the encryption process and implementation details",
         },
+      ],
+    },
+    {
+      title: "VPMS Appointment Booking Widget",
+      period: "December 2022",
+      organization: "VetCheck",
+      role: "Frontend Developer",
+      description:
+        "Designed and implemented a user-friendly Appointment Booking Widget for the VetCheck Veterinary Practice Management System (VPMS). This widget serves as a floating UI component that allows clients' customers to schedule appointments conveniently, featuring responsive design and accessibility considerations.",
+      images: [
+        {
+          src: "./images/booking-widget.png",
+          alt: "VPMS Appointment Booking Widget Interface",
+          caption:
+            "Progressive booking interface showing date selection, client information, and appointment details",
+        },
+      ],
+      features: [
+        {
+          title: "Responsive Design",
+          description:
+            "Implemented fully responsive and cross-platform compatible interface",
+          icon: <Layout />,
+        },
+        {
+          title: "Client Validation",
+          description:
+            "Reduced form submission errors by 95% through comprehensive client-side validation",
+          icon: <CircleCheckBig />,
+        },
+        {
+          title: "Accessibility",
+          description:
+            "Implemented keyboard tabbing focus and proper ARIA labels for better accessibility",
+          icon: <Focus />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Client Satisfaction",
+          value: "Excellent Feedback",
+          type: "achievement",
+        },
+        {
+          label: "Appointment Booking Time",
+          oldValue: "5+ minutes",
+          newValue: "Under 2 minutes",
+          improvement: "60%",
+        },
+        {
+          label: "User Experience",
+          value: "95% usability rating",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "JavaScript",
+        "jQuery",
+        "HTML",
+        "CSS",
+        "UI/UX Design",
+        "Chrome Dev Tools",
+      ],
+    },
+    {
+      title: "VPMS Calculator Widget & Search",
+      period: "January 2023",
+      organization: "VetCheck",
+      role: "Frontend Developer",
+      description:
+        "Rebuilt the Calculator Widget addressing computational issues and implemented an intuitive Search Functionality. Fixed critical floating-point arithmetic issues and enhanced UI responsiveness.Resolved and Fixed critical floating-point arithmetic inaccuracies, percentage calculation bugs, and enhanced UI responsiveness while adding new features like keyboard bindings.",
+      images: [
+        {
+          src: "./images/calculator-search.png",
+          alt: "VPMS Calculator and Search Interface",
+          caption:
+            "Integrated calculator widget and help center search functionality showing dynamic article filtering and improved arithmetic precision",
+        },
+      ],
+      features: [
+        {
+          title: "Advanced Calculations",
+          description:
+            "Implemented precise floating-point arithmetic and complex calculations",
+          icon: <Calculator />,
+        },
+        {
+          title: "Error Prevention",
+          description:
+            "Reduced calculation errors by 99.9% through comprehensive input validation",
+          icon: <CircleCheckBig />,
+        },
+        {
+          title: "Enhanced UI",
+          description:
+            "Developed responsive interface with keyboard shortcuts and intuitive controls",
+          icon: <Layout />,
+        },
+        {
+          title: "Search Functionality",
+          description: "Developed dynamic search with keyword-based filtering",
+          icon: <Search />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Calculation Accuracy",
+          value: "100%",
+          type: "achievement",
+        },
+        {
+          label: "Search Response Time",
+          oldValue: "20-30 seconds manually",
+          newValue: "Under 100ms",
+          improvement: "95.5%",
+        },
+      ],
+      techStack: [
+        "Pure JavaScript",
+        "HTML",
+        "CSS",
+        "Decimal.js",
+        "UI/UX Design",
+      ],
+    },
+    {
+      title: "SRR Monitor UI & Dialogflow Bot",
+      period: "February 2023",
+      organization: "VetCheck",
+      role: "Full Stack Developer",
+      description:
+        "Designed the SRR Monitor Sheet UI for streamlined data entry and researched AI-powered chatbot integration using Dialogflow. Developed a proof-of-concept for an intelligent FAQ filtering system by integrating Google's Dialogflow API for natural language processing and intent recognition, with implementation through the Facebook Developer App for user interaction.",
+      images: [
+        {
+          src: "./images/srr-monitor.png",
+          alt: "SRR Monitor Sheet and FAQ Interface",
+          caption:
+            "Dynamic SRR monitoring interface with integrated FAQ search functionality",
+        },
+        {
+          src: "./images/dialogflow-bot.png",
+          alt: "Dialogflow Messenger Bot Interface",
+          caption:
+            "AI-powered chatbot prototype for automated customer support",
+        },
+      ],
+      features: [
+        {
+          title: "Dynamic UI Generation",
+          description:
+            "Implemented dynamic table generation for efficient data entry",
+          icon: <Table />,
+        },
+        {
+          title: "AI Integration",
+          description:
+            "Researched and prototyped AI-powered chatbot using Dialogflow",
+          icon: <Bot />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Workflow Efficiency",
+          oldValue: "Manual process",
+          newValue: "Automated",
+          improvement: "Significant",
+        },
+        {
+          label: "User Productivity",
+          value: "60% increase",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "JavaScript",
+        "Google Dialogflow API",
+        "Facebook Developer App",
+        "Messenger Bot API",
+        "UI/UX Design",
+      ],
+    },
+    {
+      title: "Passport to Maths Need Analysis Test Automation",
+      period: "August 2024 - October 2024",
+      organization: "Monash College",
+      role: "Moodle Plugin Developer",
+      description: `Developed and implemented an automated system for the Passport to Maths program that analyzes student test performance and generates personalized module recommendations. The system features a sophisticated module allocation algorithm and automated email generation, significantly reducing administrative workload while maintaining high accuracy in recommendations.`,
+      features: [
+        {
+          title: "Intelligent Module Allocation",
+          description:
+            "Automated analysis of student performance data using a BFS-based algorithm to recommend appropriate learning modules",
+          icon: <Settings />,
+        },
+        {
+          title: "Personalized Email Generation",
+          description:
+            "Automated creation and formatting of personalized emails containing module recommendations and next steps for each student",
+          icon: <Mail />,
+        },
+        {
+          title: "Performance Optimization",
+          description:
+            "Significantly improved processing speed through optimized data structures and algorithms",
+          icon: <Timer />,
+        },
+        {
+          title: "Data Integration",
+          description:
+            "Seamless integration with Moodle LMS and existing spreadsheet-based workflows",
+          icon: <BarChart2 />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Module Processing Speed",
+          oldValue: "57.1s",
+          newValue: "19s",
+          improvement: "66.7%",
+        },
+        {
+          label: "Email Generation",
+          oldValue: "15 min",
+          newValue: "3 min",
+          improvement: "80%",
+        },
+        {
+          label: "Student Retention",
+          value: "92% completion rate",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "Google Apps Script",
+        "JavaScript",
+        "Moodle Integration",
+        "CSV Processing",
+        "Drive API",
+        "BFS Algorithm",
+      ],
+      images: [
+        {
+          src: "./images/module-recommendation.png",
+          alt: "Module Recommendation Interface",
+          caption:
+            "Module Recommendation Dashboard with automated data processing",
+        },
+        {
+          src: "./images/email-template.png",
+          alt: "Automated Email Template",
+          caption: "Personalized email generation with module recommendations",
+        },
+      ],
+    },
+    {
+      title: "P2M Reporting System Automation",
+      period: "October 2024 - November 2024",
+      organization: "Monash College",
+      role: "Moodle Plugin Developer",
+      description:
+        "Developed a scalable automation solution for a comprehensive learning analytics system that automated the process of preparing and generating three key reports for student journey analysis. Streamlined data extraction, cleaning, and integration processes from CSV files into Google Sheets, featuring dynamic reporting for NAT completion, module allocation, and engagement analysis.",
+      images: [
+        {
+          src: "./images/p2m-report.png",
+          alt: "P2M Progress Report Interface",
+          caption:
+            "Master dataset showing module allocation across different math units",
+        },
+        {
+          src: "./images/p2m-flow.png",
+          alt: "P2M System Process Flow",
+          caption:
+            "Automated reporting system workflow showing data preparation, NAT processing, and report generation stages",
+        },
+      ],
+      features: [
+        {
+          title: "Automated Report Generation",
+          description:
+            "Implemented dynamic report generation system handling multiple data sources and complex calculations",
+          icon: <BarChart2 />,
+        },
+        {
+          title: "Data Integration",
+          description:
+            "Built robust data validation and error handling mechanisms for CSV processing",
+          icon: <Settings />,
+        },
+        {
+          title: "Formula Optimization",
+          description:
+            "Utilized advanced formula expressions for efficient data processing and calculations",
+          icon: <Calculator />,
+        },
+        {
+          title: "Performance Enhancement",
+          description:
+            "Optimized system performance through efficient data structures and parallel processing",
+          icon: <Timer />,
+        },
+      ],
+      metrics: [
+        {
+          label: "Manual Workload Reduction",
+          oldValue: "100%",
+          newValue: "20%",
+          improvement: "80%",
+        },
+        {
+          label: "Report Generation Time",
+          oldValue: "4 hours",
+          newValue: "15 minutes",
+          improvement: "93.75%",
+        },
+        {
+          label: "Data Accuracy",
+          value: "99.9%",
+          type: "achievement",
+        },
+      ],
+      techStack: [
+        "JavaScript/Apps Script",
+        "Google Sheets",
+        "Drive API",
+        "Array Formulas",
+        "CSV Processing",
       ],
     },
   ];
